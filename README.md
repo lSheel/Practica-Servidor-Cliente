@@ -5,6 +5,10 @@ y el servidor responde con un valor de cada tipo de dato de Java.
 
 Solo usa las clases que ya trae Java (`java.net` y `java.io`), sin librerías externas.
 
+La respuesta contiene los **ocho tipos primitivos de Java** (`byte`, `short`, `int`,
+`long`, `float`, `double`, `char` y `boolean`), además de un `String` y un arreglo
+de enteros como ejemplos de tipos de referencia.
+
 ## Archivos
 
 | Archivo         | Qué hace                                                        |
@@ -72,6 +76,19 @@ java Cliente 192.168.1.50
    el servidor la escribió. Si el orden no coincide, los valores salen incorrectos.
 7. Como UDP no garantiza que el paquete llegue, el cliente usa `setSoTimeout(5000)`: si en
    5 segundos no hay respuesta, muestra un mensaje en lugar de quedarse esperando.
+
+## Conceptos de red demostrados
+
+- Comunicación entre un cliente y un servidor mediante **UDP**.
+- Uso de una dirección IP y un número de puerto para identificar el destino.
+- Envío y recepción de datagramas sin establecer previamente una conexión.
+- Conversión de los datos a bytes para poder transportarlos por la red.
+- Uso de la IP y el puerto de origen para enviar la respuesta al cliente.
+- Uso de un tiempo límite porque UDP no garantiza la entrega de los paquetes.
+
+UDP tampoco garantiza que los datagramas lleguen en orden o que no se dupliquen. A
+cambio, tiene menos sobrecarga que TCP. En esta práctica toda la respuesta ocupa
+solamente 56 bytes, por lo que puede transportarse en un único datagrama.
 
 ## Contenido de la respuesta
 

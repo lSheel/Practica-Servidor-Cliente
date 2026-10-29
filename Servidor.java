@@ -24,7 +24,7 @@ public class Servidor {
             byte[] buffer = new byte[1024];
 
             while (true) {
-                // 1. Esperar una peticion. receive() se bloquea hasta que llega un paquete.
+                // 1. Esperar una peticion, receive() se bloquea hasta que llega un paquete.
                 DatagramPacket peticion = new DatagramPacket(buffer, buffer.length);
                 socket.receive(peticion);
 

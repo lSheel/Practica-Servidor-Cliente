@@ -5,6 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketTimeoutException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /*
@@ -29,7 +30,7 @@ public class Cliente {
             socket.setSoTimeout(5000);
 
             // 1. Enviar la peticion al servidor (IP + puerto 5000).
-            byte[] mensaje = "DATOS".getBytes();
+            byte[] mensaje = "DATOS".getBytes(StandardCharsets.UTF_8);
             DatagramPacket peticion = new DatagramPacket(mensaje, mensaje.length,
                     servidor, PUERTO);
             socket.send(peticion);
